@@ -65,3 +65,11 @@ public class Example {
 }
 }}}
 
+=Iterating server objects=
+The edplus library also contains the `ARObjectIterator` that allows you to iterate server objects, such as Filters and Forms. The `Server` class provides utility methods to this class. For example:
+{{{
+Server server = new Server("Demo:demopass@myserver:1234");        
+for (Schema schema : server.getSchemas()) {
+ // do something with schema
+}
+}}}
