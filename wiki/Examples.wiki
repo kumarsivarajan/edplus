@@ -13,8 +13,12 @@ Or you might want to do this all at once using the syntax user:password@server:p
 
 {{{Server server = new Server("Demo:demopass@myserver:1234");}}}
 
+Now that you've created the server connection, you can get the `ARServerUser` object using `server.getContext()` to pass in to the normal AR System API or one of the other classes.
+
 =Performing a query=
-To perform a query and iterate the entries you can either use the `Server` object or an `EntryIterator`. The following code snippet shows how to do it using the `Server` object:
+To perform a query and iterate the entries you can either use the `Server` object or an `EntryIterator`. The query will be performed in a server friendly way, using chunks. This way querying a table with thousands of records won't hang the server. 
+
+The following code snippet shows how to do it using the `Server` object:
 
 {{{
 Server server = new Server("Demo:demopass@myserver:1234");
