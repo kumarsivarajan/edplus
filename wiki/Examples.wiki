@@ -28,6 +28,32 @@ for (Entry e : server.query("User")) {
 }
 }}}
 
+=Creating a new entry in a form=
+The `EntryUtil` class can be used to convert a `Map<Long, Value>` to an `Entry` object like this:
+{{{
+// create the map using the field id as a key and the `Value` as the value
+Map<Long, Value> entryMap = new HashMap<Long, Value>();
+
+// now we set some fields, to be safe add "L" to the field id values as the field id might overflow an int
+entryMap.put(536870921L, new Value("This is a character value"));
+// lets set field 536870922 to $NULL$
+entryMap.put(535870922L, new Value());
+// set the status to "new"
+entryMap.put(7L, new Value(DataType.ENUM, 0));
+
+// now convert it to a real Entry object, to be submitted in Test Form
+Entry entry = EntryUtil.toEntry("Test Form", entryMap);
+// set the ARServerUser context on it...
+entry.setContext(server.getContext());
+// and create it
+entry.create();
+}}}
+
+If the request id field is put in the map, you can also update or merge an entry this way. `EntryUtil` will set the entry id on the new entry
+and also figure out if that has to be an `EntryID` or a `JoinEntryID`
+
+=Putting it all together=
+
 The following example shows a typical use of the library.
 {{{
 import java.util.Map;
