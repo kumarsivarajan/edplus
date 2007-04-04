@@ -37,7 +37,7 @@
 		</jar>
 	</target>
 	
-	<target name="dist" depends="jar,javadoc">
+	<target name="dist" depends="clean,jar,javadoc">
 		
 	</target>
 
