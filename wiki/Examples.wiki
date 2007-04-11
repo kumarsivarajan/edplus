@@ -104,3 +104,6 @@ for (Schema schema : server.getSchemas()) {
  // do something with schema
 }
 }}}
+
+=More Examples=
+...are in svn here: http://edplus.googlecode.com/svn/trunk/example/
