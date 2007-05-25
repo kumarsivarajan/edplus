@@ -71,7 +71,7 @@ public class Server {
         String pass = m.group(2);
         String server = m.group(3);
         int tcpPort = m.group(4) != null ? Integer.parseInt(m.group(4)) : 0;
-        int rpcNum = m.group(5) != null ? Integer.parseInt(m.group(4)) : 0;
+        int rpcNum = m.group(5) != null ? Integer.parseInt(m.group(5)) : 0;
         this.context = new ARServerUser(user, pass, Locale.getDefault().toString(), server);
         setPortAndQueue(tcpPort, rpcNum);
     }
