@@ -1,5 +1,5 @@
 <project name="edplus" default="dist">
-	<property name="version" value="1.0.0"/>
+	<property name="version" value="1.1.0"/>
 	<property name="src.dir" value="src"/>
 	<property name="build.dir" value="build"/>
 	<property name="lib.compile.dir" value="lib"/>
